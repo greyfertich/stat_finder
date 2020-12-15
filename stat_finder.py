@@ -7,12 +7,12 @@ class StatFinder:
         self.teamFinder = TeamFinder()
         self.NFLStatFinder = NFLStatFinder()
 
-    def find(team_name):
+    def find(self, team_name):
         team = self.teamFinder.find(team_name)
-        statFinder = getStatFinderForLeague(team.league)
-        return statFinder.find(team.name)
+        statFinder = self.getStatFinderForLeague(team.league)
+        return statFinder.find(team.abbrev)
 
-    def getStatFinderForLeague(league):
+    def getStatFinderForLeague(self, league):
         if league == const.NFL:
             return self.NFLStatFinder
         raise ValueError("Invalid League Name")
