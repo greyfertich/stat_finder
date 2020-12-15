@@ -4,11 +4,11 @@ import collections
 
 class TeamFinder:
     def __init__(self):
-        self.Team = collections.namedtuple('Team', 'name sport')
+        self.Team = collections.namedtuple('Team', 'name league')
 
     def find(team_name):
         for sport in TEAMS:
             if team_name in sport:
-                return self.Team(name=team_name, sport=sport)
-                
+                return self.Team(name=team_name, league=sport)
+
         raise ValueError("Invalid Team Name")
